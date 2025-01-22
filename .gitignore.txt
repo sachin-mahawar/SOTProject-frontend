@@ -1,0 +1,40 @@
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+
+# Ignore node_modules 
+FrontEnd/node_modules/
+
+# Ignore build directories
+TicketManagement/target/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ignore Maven specific files
+TicketManagement/pom.xml.tag
+TicketManagement/pom.xml.releaseBackup
+TicketManagement/pom.xml.versionsBackup
+TicketManagement/pom.xml.next
+TicketManagement/release.properties
+
+# Ignore Java class files
+*.class
+
+# Ignore JAR/WAR/EAR files
+*.jar
+*.war
+*.ear
+
+
+# Ignore environment variable files
+.env
