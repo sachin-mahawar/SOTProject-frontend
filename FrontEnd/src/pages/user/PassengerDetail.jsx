@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import Header from "../../layouts/header";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useLocation, useNavigate } from "react-router-dom"; // Import useNavigate
 import trainIcon from "../../assets/train_small.png"; // Ensure the path to your train icon is correct
 import passengerIcon from "../../assets/passenger.png"; // Ensure the path to your passenger icon is correct
 
 const PassengerDetails = () => {
   const location = useLocation();
+  const navigate = useNavigate(); // Initialize useNavigate
   const { train, passengers } = location.state || {};
 
   const [name, setName] = useState("");
@@ -19,10 +23,16 @@ const PassengerDetails = () => {
     e.preventDefault();
     // Handle form submission logic here, such as sending the data to a server
     console.log("Passenger Details:", { name, age, email });
+    
+    // Navigate to Payments page
+    navigate("/payments", { state: { name, age, email, train, passengers } });
   };
 
   return (
-    <div className="container mx-auto p-4 bg-gray-100 min-h-screen">
+    <>
+    <Header />
+    <ToastContainer />
+    <div className="container mx-auto p-4 bg-gray-100 min-h-screen mt-6">
       {/* Train Details */}
       {train && (
         <div className="mb-6 p-6 border rounded shadow-lg bg-white">
@@ -131,6 +141,7 @@ const PassengerDetails = () => {
         </form>
       </div>
     </div>
+  </>
   );
 };
 
